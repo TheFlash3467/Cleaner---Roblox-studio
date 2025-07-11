@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleaner Module</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        nav {
+            background-color: #2c3e50;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #34495e;
+            border-radius: 5px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        section {
+            margin-bottom: 3rem;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        pre {
+            background-color: #ecf0f1;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .emoji {
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+        .download-button {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        .download-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#docs">Documentation</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="home">
+            <h1>Cleaner Module for Roblox</h1>
+            <p>A Luau module designed to manage and clean up resources in Roblox projects efficiently.</p>
+            <a href="Cleaner++.zip" download class="download-button">Download Cleaner Module</a>
+        </section>
+
+        <section id="about">
+            <h2><span class="emoji">👤</span>About Me</h2>
+            <p>Built by <strong>flashy3467dieux</strong>, a passionate developer creating tools to streamline Roblox development.</p>
+        </section>
+
+        <section id="docs">
+            <h2><span class="emoji">📚</span>Documentation</h2>
+            <h3>Purpose</h3>
+            <p><span class="emoji">🎯</span>Cleaner is a Luau module designed to help manage and clean up resources in Roblox projects. It lets you track and remove:</p>
+            <ul>
+                <li>Custom variables</li>
+                <li>Event connections</li>
+                <li>Roblox instances</li>
+            </ul>
+
+            <h3>Installation</h3>
+            <p><span class="emoji">📦</span></p>
+            <ol>
+                <li>Place <code>Cleaner.lua</code> in your Modules folder (e.g., ReplicatedStorage).</li>
+                <li>Load the module using: <code>local Cleaner = require(path.To.Cleaner)</code></li>
+                <li>Create a cleaner object: <code>local cleaner = Cleaner.new()</code></li>
+            </ol>
+
+            <h3>Main Functions</h3>
+            <p><span class="emoji">🛠️</span></p>
+            <ul>
+                <li><code>AddVariable(name, value)</code> → Add a custom variable</li>
+                <li><code>SetVariable(name, value)</code> → Update an existing variable</li>
+                <li><code>GetVariable(name)</code> → Retrieve a variable’s value</li>
+                <li><code>Clean()</code> → Clear all stored variables</li>
+                <li><code>AddConnection(name, connection)</code> → Store a connection (e.g., from :Connect())</li>
+                <li><code>Disconnect(name?)</code> → Remove a specific or all connections</li>
+                <li><code>AddInstance(instance, name?)</code> → Add a Roblox Instance to track</li>
+                <li><code>Destroy(name?)</code> → Destroy a specific or all stored instances</li>
+                <li><code>CleanUp()</code> → Global cleanup: variables, connections, and instances</li>
+            </ul>
+
+            <h3>Quick Example</h3>
+            <p><span class="emoji">📌</span></p>
+            <pre><code>local cleaner = Cleaner.new()
+
+-- Variables
+cleaner:AddVariable("score", 10)
+
+-- Connections
+local conn = part.Touched:Connect(function()
+    print("Touched!")
+end)
+cleaner:AddConnection("TouchConn", conn)
+
+-- Instances
+local gui = Instance.new("ScreenGui", player.PlayerGui)
+cleaner:AddInstance(gui, "MainGui")
+
+-- Cleanup
+cleaner:CleanUp()
+</code></pre>
+
+            <h3>Summary</h3>
+            <p><span class="emoji">🧼</span>Cleaner is efficient, readable, and easy to integrate into any Roblox project.</p>
+        </section>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('href').substring(1);
+                const section = document.getElementById(sectionId);
+                section.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
