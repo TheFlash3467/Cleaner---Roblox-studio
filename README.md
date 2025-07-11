@@ -50,6 +50,8 @@ cleaner:AddInstance(gui, "MainGui")
 -- Cleanup
 cleaner:CleanUp()
 
+# More information on https://theflash3467.github.io/Cleaner---Roblox-studio/
+
 👤 Author:
 ----------
 Built by flashy3467dieux  
